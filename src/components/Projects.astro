@@ -1,0 +1,80 @@
+---
+import "../../public/pic1.jpeg"
+import Next from "../icons/Next.astro"
+import Css from "../icons/Css.astro"
+import React from "../icons/React.astro"
+import Typescript from "../icons/Typescript.astro"
+import Javascript from "../icons/Javascript.astro"
+import GithubIcon from "../icons/GithubIcon.astro"
+
+
+
+
+const TAGS = {
+    NEXT : {
+        name: "Next.js",
+        icon: Next    },
+    CSS: {
+        name: "CSS",
+        icon: Css
+    },
+    REACT : {
+        name: "React",
+        icon: React
+    },
+    TYPESCRIPT: {
+        name: "Typescript",
+        icon: Typescript
+    }, 
+    JAVASCRIPT: {
+        name: "Javascript",
+        icon: Javascript
+    },
+
+
+    
+}
+
+
+
+const PROJECTS = [
+    {
+        title: "E-commerce",
+        description: "a modern, React-based e-commerce application designed to provide a seamless shopping experience. This project leverages the latest web technologies to ensure a fast, responsive, and intuitive user interface.",
+        github: "https://github.com/lolocompa/odin-store",
+        img: "../../public/project1.webp",
+        tags: [ TAGS.CSS, TAGS.JAVASCRIPT, TAGS.REACT]
+    },
+    {
+        title: "Spotify clone",
+        description: "This project is a clone of Spotify, aiming to replicate the look and feel of the original Spotify application. It's built using modern web technologies and provides a simplified version of Spotify's core features.",
+        github: "https://github.com/lolocompa/spotify-clone",
+        img: "../../public/project2.webp",
+        tags: [TAGS.NEXT, TAGS.CSS,  TAGS.REACT, ]
+    }
+]
+---
+
+{
+    PROJECTS.map(project => (
+        <article class="mb-20">
+            <div class="flex items-center gap-x-3">
+                <h3 class="text-2xl font-semibold text-yellow-200 mb-2">
+                {project.title}
+                </h3>
+                <a class="rounded-full my-2 flex justify-center items-center border border-white/10 gap-x-2 text-xs lg:text-base py-1 lg:py-2   px-3 mx-1 bgwhite/5 hover:scale-110 hover:bg-white/10 transition" href={project.github}><GithubIcon class="size-4 lg:size-6" /> Code</a>
+            </div>
+            <p class="text-lg mb-4 text-pretty">{project.description}</p>
+            <ul class="flex gap-x-2 flex-row mb-3">
+                {project.tags.map(tag => (
+                    <li>
+                        <span class="rounded-full my-2 flex justify-center items-center border border-white/10 gap-x-2 text-xs lg:text-base py-1 lg:py-2   px-3 mx-1 bgwhite/5 hover:scale-110 hover:bg-white/10 transition">
+                            <tag.icon />{tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img class="rounded size-50 shadow-2xl shadow-white/10" src={project.img} alt={project.title}>
+        </article>
+    ))
+}

@@ -1,0 +1,134 @@
+---
+import NextIcon  from "../icons/Next.astro"
+import CssIcon  from "../icons/Css.astro"
+import ReactIcon  from "../icons/React.astro"
+import TypescriptIcon  from "../icons/Typescript.astro"
+import JavascriptIcon  from "../icons/Javascript.astro"
+import HtmlIcon from "../icons/Html.astro"
+import AstroIcon  from "../icons/AstroIcon.astro"
+import TailwindIcon  from "../icons/Tailwind.astro"
+import NodeIcon  from "../icons/Node.astro"
+import ExpressIcon  from "../icons/Express.astro"
+import MongoIcon  from "../icons/Mongo.astro"
+import DjangoIcon  from "../icons/Django.astro"
+import FlaskIcon  from "../icons/Flask.astro"
+import Sqlite  from "../icons/Sqilte.astro"
+import CIcon  from "../icons/CIcon.astro"
+
+
+
+const FRONTEND = {
+    NEXT : {
+        name: "Next.js",
+        icon: NextIcon     },
+    CSS: {
+        name: "CSS",
+        icon: CssIcon 
+    },
+    REACT : {
+        name: "React",
+        icon: ReactIcon 
+    },
+    TYPESCRIPT: {
+        name: "Typescript",
+        icon: TypescriptIcon 
+    }, 
+    JAVASCRIPT: {
+        name: "Javascript",
+        icon: JavascriptIcon 
+    },
+    HTML: {
+        name: "HTML",
+        icon: HtmlIcon 
+    },
+    ASTRO: {
+        name: "Astro",
+        icon: AstroIcon 
+    },
+    TAILWIND: {
+        name: "Tailwind",
+        icon: TailwindIcon 
+    }
+    
+}
+
+
+
+const BACKEND = {
+    NODE: {
+        name: "Node.js",
+        icon: NodeIcon 
+    },
+    EXPRESS: {
+        name: "Express",
+        icon: ExpressIcon 
+    },
+    MONGO: {
+        name: "Mongo.db",
+        icon: MongoIcon 
+    },
+    DJANGO: {
+        name: "Django",
+        icon: DjangoIcon 
+    },
+    FLASK : {
+        name: "Flask",
+        icon: FlaskIcon 
+    },
+
+    SQLITE: {
+        name: "Sqlite",
+        icon: Sqlite
+    },
+    C : {
+        name: "C",
+        icon: CIcon
+    }
+}
+
+
+const frontSkills = [FRONTEND.ASTRO, FRONTEND.CSS, FRONTEND.HTML, FRONTEND.JAVASCRIPT, FRONTEND.NEXT, FRONTEND.REACT, FRONTEND.TAILWIND, FRONTEND.TYPESCRIPT]
+const backSkills = [BACKEND.DJANGO, BACKEND.SQLITE , BACKEND.EXPRESS, BACKEND.FLASK, BACKEND.MONGO, BACKEND.NODE, BACKEND.C]
+
+---
+
+<style>
+  .gradient-blue {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-black {
+    background: linear-gradient(to right, #ffffff, #4b5563);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+
+<div class="flex flex-col  items-center">
+    <div class="flex flex-col gap-y-12 w-full md:flex-row justify-between md:items-start">
+        <div class="flex p-3 rounded-2xl flex-col max-w-[330px] justify-center  bg-black/40  items-center w-full md:w-1/2 mb-8 md:mb-0">
+            <h2 class="text-2xl gradient-blue font-semibold mb-5">Frontend</h2>
+            <div class="flex flex-wrap items-center justify-center  gap-6">
+                {frontSkills.map(skill => (
+                    <div class="flex flex-col items-center justify-center">
+                        <skill.icon class="size-20" />
+                        <h3 class="mt-2">{skill.name}</h3>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="flex flex-col rounded-2xl bg-black/40  items-center p-3 max-w-[330px] md:w-1/2">
+            <h2 class="text-2xl gradient-black font-semibold mb-5">Backend</h2>
+            <div class="flex flex-wrap justify-center  gap-6">
+                {backSkills.map(skill => (
+                    <div class="flex flex-col items-center justify-center">
+                        <skill.icon class="size-20" />
+                        <h3 class="mt-2">{skill.name}</h3>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>
